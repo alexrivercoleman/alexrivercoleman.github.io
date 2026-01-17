@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name | Software Developer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #ffffff;
+      color: #111827;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    header {
+      padding: 1rem 0;
+    }
+
+    header nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.125rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .logo:hover {
+      color: #4b5563;
+    }
+
+    /* Main */
+    main {
+      padding: 2rem 0;
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-bottom: 6rem;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #374151;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .hero p:last-child {
+      font-size: 1.125rem;
+      color: #4b5563;
+    }
+
+    .hero-image {
+      flex-shrink: 0;
+    }
+
+    .hero-image a {
+      display: block;
+      transition: opacity 0.2s;
+    }
+
+    .hero-image a:hover {
+      opacity: 0.8;
+    }
+
+    .hero-image img {
+      width: 16rem;
+      height: 16rem;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Projects Section */
+    .projects {
+      margin-bottom: 6rem;
+    }
+
+    .projects h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border: 1px solid #e5e7eb;
+      background-color: #f9fafb;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: #9ca3af;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .external-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: #9ca3af;
+      flex-shrink: 0;
+      transition: color 0.2s;
+    }
+
+    .project-card:hover .external-icon {
+      color: #4b5563;
+    }
+
+    .project-description {
+      color: #4b5563;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: auto;
+    }
+
+    .tag {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.875rem;
+      border-radius: 9999px;
+    }
+
+    .tag-react { background-color: #dbeafe; color: #1e40af; }
+    .tag-typescript { background-color: #bfdbfe; color: #1e3a8a; }
+    .tag-nodejs { background-color: #d1fae5; color: #065f46; }
+    .tag-rust { background-color: #fed7aa; color: #c2410c; }
+    .tag-python { background-color: #fef3c7; color: #a16207; }
+    .tag-go { background-color: #cffafe; color: #155e75; }
+    .tag-javascript { background-color: #fef08a; color: #a16207; }
+    .tag-d3 { background-color: #fce7f3; color: #9f1239; }
+    .tag-svelte { background-color: #fee2e2; color: #991b1b; }
+    .tag-rest { background-color: #e9d5ff; color: #6b21a8; }
+    .tag-graphql { background-color: #fbcfe8; color: #9f1239; }
+
+    /* Contact Section */
+    .contact {
+      margin-bottom: 4rem;
+    }
+
+    .contact h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .contact > p {
+      font-size: 1.125rem;
+      color: #374151;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #374151;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover {
+      color: #111827;
+    }
+
+    .contact-link svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .contact-location {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #4b5563;
+    }
+
+    .contact-location svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #e5e7eb;
+      margin-top: 4rem;
+    }
+
+    footer .container {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    footer p {
+      font-size: 0.875rem;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    /* Responsive Design */
+    @media (min-width: 768px) {
+      .hero-content {
+        flex-direction: row;
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Your Name</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Hi, I'm [Your Name]</h1>
+            <p>
+              I am a software developer passionate about building elegant solutions to complex problems. 
+              I specialize in web development, systems programming, and developer tooling.
+            </p>
+            <p>
+              Currently working on innovative projects that help developers work more efficiently. 
+              I love exploring new technologies and contributing to open source.
+            </p>
+          </div>
+          <div class="hero-image">
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <img 
+                src="https://images.unsplash.com/photo-1544568100-847a948585b9?w=400&h=400&fit=crop" 
+                alt="Samoyed"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          
+          <!-- Project 1 -->
+          <a href="https://github.com/yourusername/project-alpha" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-header">
+              <h3>Project Alpha</h3>
+              <svg class="external-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </div>
+            <p class="project-description">A powerful tool for automating development workflows</p>
+            <div class="tags">
+              <span class="tag tag-react">React</span>
+              <span class="tag tag-typescript">TypeScript</span>
+              <span class="tag tag-nodejs">Node.js</span>
+            </div>
+          </a>
+
+          <!-- Project 2 -->
+          <a href="https://github.com/yourusername/formatter" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-header">
+              <h3>Code Formatter</h3>
+              <svg class="external-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </div>
+            <p class="project-description">Fast and reliable code formatting utility</p>
+            <div class="tags">
+              <span class="tag tag-rust">Rust</span>
+              <span class="tag tag-python">Python</span>
+              <span class="tag tag-go">Go</span>
+            </div>
+          </a>
+
+          <!-- Project 3 -->
+          <a href="https://github.com/yourusername/viz" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-header">
+              <h3>Data Visualizer</h3>
+              <svg class="external-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </div>
+            <p class="project-description">Interactive data visualization library</p>
+            <div class="tags">
+              <span class="tag tag-javascript">JavaScript</span>
+              <span class="tag tag-d3">D3.js</span>
+              <span class="tag tag-svelte">Svelte</span>
+            </div>
+          </a>
+
+          <!-- Project 4 -->
+          <a href="https://github.com/yourusername/api-toolkit" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-header">
+              <h3>API Toolkit</h3>
+              <svg class="external-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </div>
+            <p class="project-description">Comprehensive API testing and development toolkit</p>
+            <div class="tags">
+              <span class="tag tag-typescript">TypeScript</span>
+              <span class="tag tag-rest">REST</span>
+              <span class="tag tag-graphql">GraphQL</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact">
+        <h2>Wanna get in touch?</h2>
+        <p>I'm always available for exciting discussions</p>
+        <div class="contact-links">
+          <a href="mailto:your.email@example.com" class="contact-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            <span>your.email@example.com</span>
+          </a>
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <span>github.com/yourusername</span>
+          </a>
+          <div class="contact-location">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <span>Your City, Your Country</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Your Name. Built with HTML & CSS.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
